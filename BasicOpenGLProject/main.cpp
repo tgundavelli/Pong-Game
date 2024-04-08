@@ -17,68 +17,69 @@ void idle_func()
 	//glutPostRedisplay();
 }
 
-void reshape_func( int width, int height )
+void reshape_func(int width, int height)
 {
-	glViewport( 0, 0, width, height );
+	glViewport(0, 0, width, height);
 	glutPostRedisplay();
 }
 
-void keyboard_func( unsigned char key, int x, int y )
+void keyboard_func(unsigned char key, int x, int y)
 {
-	switch( key )
+	switch (key)
 	{
-		case 'w':
-		{
-			break;
-		}
+	case 'w':
+	{
+		break;
 
-		case 'a':
-		{
-			break;
-		}
+	}
 
-		case 's':
-		{
-			break;
-		}
+	case 'a':
+	{
+		break;
+	}
 
-		case 'd':
-		{
-			break;
-		}
+	case 's':
+	{
+		break;
+	}
 
-		// Exit on escape key press
-		case '\x1B':
-		{
-			exit( EXIT_SUCCESS );
-			break;
-		}
+	case 'd':
+	{
+		break;
+	}
+
+	// Exit on escape key press
+	case '\x1B':
+	{
+		exit(EXIT_SUCCESS);
+		break;
+	}
 	}
 
 	glutPostRedisplay();
 }
 
-void key_released( unsigned char key, int x, int y )
+void key_released(unsigned char key, int x, int y)
 {
 }
 
-void key_special_pressed( int key, int x, int y )
+void key_special_pressed(int key, int x, int y)
 {
 }
 
-void key_special_released( int key, int x, int y )
+void key_special_released(int key, int x, int y)
 {
 }
 
-void mouse_func( int button, int state, int x, int y )
+void mouse_func(int button, int state, int x, int y)
 {
 }
 
-void passive_motion_func( int x, int y )
+void passive_motion_func(int x, int y)
 {
 }
 
-void active_motion_func( int x, int y )
+void active_motion_func(int x, int y)
 {
 }
 
@@ -86,28 +87,28 @@ void active_motion_func( int x, int y )
 // RENDERING
 //=================================================================================================
 
-void display_func( void )
+void display_func(void)
 {
-	glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	glBegin( GL_LINES );
-		glColor3f( 1.0f, 0.0f, 0.0f );
-		glVertex2f( -0.5f, 0.0f );
-		glColor3f( 0.0f, 1.0f, 0.0f );
-		glVertex2f( 0.5f, 0.0f );
+	glBegin(GL_LINES);
+	glColor3f(1.0f, 0.0f, 0.0f);
+	glVertex2f(-0.5f, 0.0f);
+	glColor3f(0.0f, 1.0f, 0.0f);
+	glVertex2f(0.5f, 0.0f);
 	glEnd();
 
-	glColor3f( 0.0f, 0.0f, 1.0f );
-	glBegin( GL_LINES );
-		glVertex2f( 0.0f, -0.5f );
-		glVertex2f( 0.0f, 0.5f );
+	glColor3f(0.0f, 0.0f, 1.0f);
+	glBegin(GL_LINES);
+	glVertex2f(0.0f, -0.5f);
+	glVertex2f(0.0f, 0.5f);
 	glEnd();
 
-	glColor3f( 1.0f, 1.0f, 1.0f );
-	glBegin( GL_TRIANGLES );
-		glVertex2f( 0.1f, 0.1f );
-		glVertex2f( 0.4f, 0.1f );
-		glVertex2f( 0.25f, 0.4f );
+	glColor3f(1.0f, 1.0f, 1.0f);
+	glBegin(GL_TRIANGLES);
+	glVertex2f(0.1f, 0.1f);
+	glVertex2f(0.4f, 0.1f);
+	glVertex2f(0.25f, 0.4f);
 	glEnd();
 
 	glutSwapBuffers();
@@ -117,15 +118,15 @@ void display_func( void )
 // INIT
 //=================================================================================================
 
-void init( void )
+void init(void)
 {
 	// Print some info
-	std::cout << "Vendor:         " << glGetString( GL_VENDOR   ) << "\n";
-	std::cout << "Renderer:       " << glGetString( GL_RENDERER ) << "\n";
-	std::cout << "OpenGL Version: " << glGetString( GL_VERSION  ) << "\n\n";
+	//std::cout << "Vendor:         " << glGetString(GL_VENDOR) << "\n";
+	//std::cout << "Renderer:       " << glGetString(GL_RENDERER) << "\n";
+	//std::cout << "OpenGL Version: " << glGetString(GL_VERSION) << "\n\n";
 
 	// Set the background color
-	glClearColor( 0.0f, 0.0f, 0.0f, 0.0f );
+	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 
 	std::cout << "Finished initializing...\n\n";
 }
@@ -134,26 +135,23 @@ void init( void )
 // MAIN
 //=================================================================================================
 
-int main( int argc, char** argv )
+int main(int argc, char** argv)
 {
-	glutInit( &argc, argv );
+	glutInit(&argc, argv);
 
-	glutInitWindowPosition( 100, 100 );
-	glutInitWindowSize( 800, 600 );
-	glutInitDisplayMode( GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH );
-
-	glutCreateWindow( "Basic OpenGL Example" );
-
-	glutDisplayFunc( display_func );
-	glutIdleFunc( idle_func );
-	glutReshapeFunc( reshape_func );
-	glutKeyboardFunc( keyboard_func );
-	glutKeyboardUpFunc( key_released );
-	glutSpecialFunc( key_special_pressed );
-	glutSpecialUpFunc( key_special_released );
-	glutMouseFunc( mouse_func );
-	glutMotionFunc( active_motion_func );
-	glutPassiveMotionFunc( passive_motion_func );
+	glutInitWindowPosition(100, 100);
+	glutInitWindowSize(800, 600);
+	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH);
+	glutDisplayFunc(display_func);
+	glutIdleFunc(idle_func);
+	glutReshapeFunc(reshape_func);
+	glutKeyboardFunc(keyboard_func);
+	glutKeyboardUpFunc(key_released);
+	glutSpecialFunc(key_special_pressed);
+	glutSpecialUpFunc(key_special_released);
+	glutMouseFunc(mouse_func);
+	glutMotionFunc(active_motion_func);
+	glutPassiveMotionFunc(passive_motion_func);
 
 	init();
 
