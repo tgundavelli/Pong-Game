@@ -142,6 +142,9 @@ int main(int argc, char** argv)
 	glutInitWindowPosition(100, 100);
 	glutInitWindowSize(800, 600);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH);
+
+	glutCreateWindow("Basic OpenGL Example");
+
 	glutDisplayFunc(display_func);
 	glutIdleFunc(idle_func);
 	glutReshapeFunc(reshape_func);

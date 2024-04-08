@@ -19,6 +19,7 @@ public :
 	}
 	virtual void PaddleUp() = 0;
 	virtual void PaddleDown() = 0;
+	void Render();
 };
 
 
