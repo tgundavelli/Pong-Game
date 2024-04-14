@@ -4,14 +4,14 @@
 
 class Paddle {
 protected:
-	int posX;
-	int posY;
+	float posX; //float for glRectf
+	float posY;
 public :
 	Paddle() { //origin is top left, so (0,0) is top left
 		posX = 0;
 		posY = 0;
 	}
-	Paddle(int x, int y) {
+	Paddle(float x, float y) {
 		posX = x;
 		posY = y;
 	}
@@ -19,7 +19,7 @@ public :
 	}
 	virtual void PaddleUp() = 0;
 	virtual void PaddleDown() = 0;
-	void Render();
+	virtual void Render() = 0;
 };
 
 

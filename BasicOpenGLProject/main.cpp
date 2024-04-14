@@ -1,5 +1,6 @@
 #include <GL/freeglut.h>
 #include <iostream>
+#include "UserPaddle.h"
 
 //=================================================================================================
 // CALLBACKS
@@ -10,6 +11,8 @@
 // https://www.opengl.org/resources/libraries/glut/spec3/node45.html
 // http://freeglut.sourceforge.net/docs/api.php#WindowCallback
 //-----------------------------------------------------------------------------
+
+UserPaddle paddle1(-0.97f,-0.25f); //Include UserPaddle.h not UserPaddle.cpp
 
 void idle_func()
 {
@@ -27,18 +30,19 @@ void keyboard_func(unsigned char key, int x, int y)
 {
 	switch (key)
 	{
-	case 'w':
+	case 'w': //I don't know how to do Arrow key
 	{
-		break;
-
-	}
-
-	case 'a':
-	{
+		paddle1.PaddleUp();
 		break;
 	}
 
 	case 's':
+	{
+		paddle1.PaddleDown();
+		break;
+	}
+
+	case 'a':
 	{
 		break;
 	}
@@ -91,25 +95,7 @@ void display_func(void)
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	glBegin(GL_LINES);
-	glColor3f(1.0f, 0.0f, 0.0f);
-	glVertex2f(-0.5f, 0.0f);
-	glColor3f(0.0f, 1.0f, 0.0f);
-	glVertex2f(0.5f, 0.0f);
-	glEnd();
-
-	glColor3f(0.0f, 0.0f, 1.0f);
-	glBegin(GL_LINES);
-	glVertex2f(0.0f, -0.5f);
-	glVertex2f(0.0f, 0.5f);
-	glEnd();
-
-	glColor3f(1.0f, 1.0f, 1.0f);
-	glBegin(GL_TRIANGLES);
-	glVertex2f(0.1f, 0.1f);
-	glVertex2f(0.4f, 0.1f);
-	glVertex2f(0.25f, 0.4f);
-	glEnd();
+	paddle1.Render();
 
 	glutSwapBuffers();
 }

@@ -5,19 +5,20 @@
 
 class UserPaddle : public Paddle {
 protected:
-	int posX;
-	int posY;
+	float posX;
+	float posY;
 public:
-	Paddle() { //origin is top left, so (0,0) is top left
+	UserPaddle() { //origin is top left, so (0,0) is top left
 		posX = 0;
 		posY = 0;
 	}
-	Paddle(int x, int y) {
+	UserPaddle(float x, float y) {
 		posX = x;
 		posY = y;
 	}
-	virtual ~Paddle() {
+	virtual ~UserPaddle() {
 	}
-	virtual void PaddleUp() override {};
-	virtual void PaddleDown() override {};
+	virtual void PaddleUp() override;
+	virtual void PaddleDown() override;
+	virtual void Render() override; //do not provide definition {} in .h if definition is shown in .cpp
 };
