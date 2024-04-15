@@ -9,9 +9,9 @@ void UserPaddle::Render(){
 void UserPaddle::PaddleUp() {
 	posY += 0.1f;
 	glutPostRedisplay();
-}
+};
 
 void UserPaddle::PaddleDown() {
 	posY -= 0.1f;
 	glutPostRedisplay();
-}
+};

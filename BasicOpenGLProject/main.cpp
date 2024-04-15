@@ -1,6 +1,8 @@
 #include <GL/freeglut.h>
 #include <iostream>
 #include "UserPaddle.h"
+#include "OtherPaddle.h"
+#include "Ball.h"
 
 //=================================================================================================
 // CALLBACKS
@@ -13,11 +15,16 @@
 //-----------------------------------------------------------------------------
 
 UserPaddle paddle1(-0.97f,-0.25f); //Include UserPaddle.h not UserPaddle.cpp
+OtherPaddle paddle2(0.87f,-0.25f); //position is middle right
+Ball the_ball(0,0);
 
 void idle_func()
 {
 	//uncomment below to repeatedly draw new frames
-	//glutPostRedisplay();
+	the_ball.BallMove();
+	paddle2.PaddleUp(the_ball.getBallX(), the_ball.getBallY());
+	paddle2.PaddleDown(the_ball.getBallX(), the_ball.getBallY());
+	glutPostRedisplay();
 }
 
 void reshape_func(int width, int height)
@@ -96,7 +103,8 @@ void display_func(void)
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	paddle1.Render();
-
+	paddle2.Render();
+	the_ball.BallRender();
 	glutSwapBuffers();
 }
 
@@ -129,7 +137,7 @@ int main(int argc, char** argv)
 	glutInitWindowSize(800, 600);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH);
 
-	glutCreateWindow("Basic OpenGL Example");
+	glutCreateWindow("Pong Game");
 
 	glutDisplayFunc(display_func);
 	glutIdleFunc(idle_func);

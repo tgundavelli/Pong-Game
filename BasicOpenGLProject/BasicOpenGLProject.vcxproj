@@ -135,10 +135,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Ball.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="OtherPaddle.cpp" />
     <ClCompile Include="UserPaddle.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Ball.h" />
+    <ClInclude Include="OtherPaddle.h" />
     <ClInclude Include="Paddle.h" />
     <ClInclude Include="UserPaddle.h" />
   </ItemGroup>
