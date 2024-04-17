@@ -9,9 +9,10 @@ void Ball::BallRender(){
 	glPopMatrix();
 };
 
-void Ball::BallMove(){
+void Ball::BallMove(bool collide1, bool collide2){
 	posX += vx;
 	posY += vy;
+	//std::cout << posX << " " << posY << " " << vx << " " << vy << "][";
 	if (posX <= -1.0) {
 		posX = -1.0;
 		vx *= -1;
@@ -23,13 +24,20 @@ void Ball::BallMove(){
 	if (posY <= -1.0) {
 		posY = -1.0;
 		vy *= -1;
-		std::cout << posX << posY;
 	}
 	if (posY >= 1.0) {
 		posY = 1.0;
 		vy *= -1;
-		std::cout << posX << posY;
 	}
+	if (collide1) {
+		posX += 0.05;
+	    vx *= -1;
+	}
+	if (collide2) {
+		posX -= 0.05;
+		vx *= -1;
+	}
+
 };
 
 float Ball::getBallX() {

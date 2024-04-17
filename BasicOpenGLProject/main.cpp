@@ -3,6 +3,7 @@
 #include "UserPaddle.h"
 #include "OtherPaddle.h"
 #include "Ball.h"
+#include "Game.h"
 
 //=================================================================================================
 // CALLBACKS
@@ -17,11 +18,12 @@
 UserPaddle paddle1(-0.97f,-0.25f); //Include UserPaddle.h not UserPaddle.cpp
 OtherPaddle paddle2(0.87f,-0.25f); //position is middle right
 Ball the_ball(0,0);
+Game hit;
 
 void idle_func()
 {
 	//uncomment below to repeatedly draw new frames
-	the_ball.BallMove();
+	the_ball.BallMove(hit.Collision(the_ball.getBallX(), the_ball.getBallY(), paddle1.getPaddleX(), paddle1.getPaddleY()), hit.Collision(the_ball.getBallX(), the_ball.getBallY(), paddle2.getPaddleX(), paddle2.getPaddleY()));
 	paddle2.PaddleUp(the_ball.getBallX(), the_ball.getBallY());
 	paddle2.PaddleDown(the_ball.getBallX(), the_ball.getBallY());
 	glutPostRedisplay();

@@ -20,6 +20,12 @@ public :
 	virtual void PaddleUp() = 0;
 	virtual void PaddleDown() = 0;
 	virtual void Render() = 0;
+    virtual float getPaddleX(){
+		return posX;
+	}
+	virtual float getPaddleY(){
+		return posY;
+	}
 };
 
 

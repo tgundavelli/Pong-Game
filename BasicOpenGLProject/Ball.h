@@ -12,19 +12,19 @@ public:
 	Ball() { 
 		posX = 0;
 		posY = 0;
-		vx = 0.00005f;
-		vy = 0.000015f;
+		vx = 0.00025f;
+		vy = 0.000055f;
 	}
 	Ball(float x, float y) {
 		posX = x;
 		posY = y;
-		vx = 0.00005f;
-		vy = 0.000015f;
+		vx = 0.00025f;
+		vy = 0.000055f;
 	}
 	~Ball() {
 	}
 	void BallRender();
-	void BallMove();
+	void BallMove(bool collide1, bool collide2);
 	float getBallX();
 	float getBallY();
 };

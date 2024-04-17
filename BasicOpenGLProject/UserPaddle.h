@@ -21,4 +21,10 @@ public:
 	virtual void PaddleUp() override;
 	virtual void PaddleDown() override;
 	virtual void Render() override; //do not provide definition {} in .h if definition is shown in .cpp
+	virtual float getPaddleX() override {
+		return posX;
+	} 
+	virtual float getPaddleY() override {
+		return posY;
+	}
 };

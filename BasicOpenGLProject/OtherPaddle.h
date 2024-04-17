@@ -23,4 +23,10 @@ public:
 	void PaddleUp(float Ball_posX, float Ball_posY); //no override because different parameters
 	void PaddleDown(float Ball_posX, float Ball_posY);
 	virtual void Render() override; //do not provide definition {} in .h if definition is shown in .cpp
+	virtual float getPaddleX() override {
+		return posX;
+	}
+	virtual float getPaddleY() override {
+		return posY;
+	}
 };
