@@ -104,6 +104,20 @@ void display_func(void)
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+	glColor3f(1.0f, 1.0f, 1.0f);
+	glBegin(GL_LINES);
+	float i = 1;
+	while (i > -1) 
+	{
+
+	glVertex2f(0.0f, i);
+	i -= 0.03;
+	glVertex2f(0.0f, i);
+	i -= 0.03;
+	}
+	glEnd();
+
+
 	paddle1.Render();
 	paddle2.Render();
 	the_ball.BallRender();

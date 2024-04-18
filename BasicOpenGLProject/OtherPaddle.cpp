@@ -8,14 +8,14 @@ void OtherPaddle::Render() {
 
 void OtherPaddle::PaddleUp(float Ball_posX, float Ball_posY) {
 	if (Ball_posY > (posY + 0.2f)) {
-		posY += 0.00005f;
+		posY += 0.0001f;
 	}
 	glutPostRedisplay();
 };
 
 void OtherPaddle::PaddleDown(float Ball_posX, float Ball_posY) {
 	if (Ball_posY < (posY + 0.2f)) {
-		posY -= 0.000015f;
+		posY -= 0.0001f;
 	}
 	glutPostRedisplay();
 };
