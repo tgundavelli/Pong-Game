@@ -1,11 +1,73 @@
 #pragma once
 
 #include <iostream>
-#include "Paddle.h"
-#include "Ball.h"
+#include <string>
+#include <GL/freeglut.h>
 
 class Game {
+protected :
+	int Userscore;
+	int Otherscore;
+	bool UserPush;
+	bool OtherPush;
+	bool OppWallUser;
+	bool OppWallOther;
 public:
+	Game() {
+		Userscore = 0;
+		Otherscore = 0;
+		UserPush = false;
+		OtherPush = false;
+		OppWallUser = false;
+		OppWallOther = false;
+	}
+	void reset_bools() {
+		UserPush = false;
+		OtherPush = false;
+		OppWallUser = false;
+		OppWallOther = false;
+	}
+	~Game() {
+
+	}
+	void ScoreRender() {
+		//glClear(GL_COLOR_BUFFER_BIT); don't use this or else it can't exist at same time as dashed lines
+
+		std::string str1 = std::to_string(Userscore);
+		const unsigned char* string1 = reinterpret_cast<const unsigned char*>(str1.c_str());
+		glColor3f(1.0, 1.0, 1.0);
+		glRasterPos2f(-0.25, 0.9);
+		glutBitmapString(GLUT_BITMAP_HELVETICA_18, string1);
+
+		std::string str2 = std::to_string(Otherscore);
+		const unsigned char* string2 = reinterpret_cast<const unsigned char*>(str2.c_str());
+		glColor3f(1.0, 1.0, 1.0);
+		glRasterPos2f(0.25, 0.9);
+		glutBitmapString(GLUT_BITMAP_HELVETICA_18, string2);
+
+
+	}
+	void set_UP(bool w){
+		UserPush = w;
+	}
+	void set_OP(bool x) {
+		OtherPush = x;
+	}
+	void set_OPU(bool y) {
+		OppWallUser = y;
+	}
+	void set_OPO(bool z) {
+		OppWallOther = z;
+	}
+	void CalculateScore() {
+		std::cout << UserPush << OppWallUser << OtherPush << OppWallOther << " ";
+		if (UserPush && OppWallUser) {
+			Userscore++;
+		}
+		if (OtherPush && OppWallOther) {
+			Otherscore++;
+		}
+	}
 	bool Collision(float Ball_posX, float Ball_posY, float Paddle_posX, float Paddle_posY) {
 		//instead of calculating distances by vertices, find side the center of circle is closest to 
 		//rx, ry + 0.4f           rx+0.1f, ry + 0.4f
@@ -38,4 +100,5 @@ public:
 			return false; //collision did not happen
 		}
 	}
+
 };

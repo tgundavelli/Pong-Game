@@ -1,4 +1,5 @@
 #include "Ball.h"
+#include "Game.h"
 #include <GL/freeglut.h>
 
 void Ball::BallRender(){
@@ -16,10 +17,18 @@ void Ball::BallMove(bool collide1, bool collide2){
 	if (posX <= -1.0) {
 		posX = -1.0;
 		vx *= -1;
+		test->set_OPO(true);
+		test->set_OPU(false);
+		test->CalculateScore();
+		test->reset_bools();
 	}
 	if (posX >= 1.0) {
 		posX = 1.0;
 		vx *= -1;
+		test->set_OPO(false);
+		test->set_OPU(true);
+		test->CalculateScore();
+		test->reset_bools();
 	}
 	if (posY <= -1.0) {
 		posY = -1.0;
@@ -28,16 +37,20 @@ void Ball::BallMove(bool collide1, bool collide2){
 	if (posY >= 1.0) {
 		posY = 1.0;
 		vy *= -1;
+
 	}
 	if (collide1) {
 		posX += 0.05;
 	    vx *= -1;
+		test->set_UP(true);
+		test->set_OP(false);
 	}
 	if (collide2) {
 		posX -= 0.05;
 		vx *= -1;
+		test->set_UP(false);
+		test->set_OP(true);
 	}
-
 };
 
 float Ball::getBallX() {

@@ -17,16 +17,18 @@
 
 UserPaddle paddle1(-0.97f,-0.25f); //Include UserPaddle.h not UserPaddle.cpp
 OtherPaddle paddle2(0.87f,-0.25f); //position is middle right
-Ball the_ball(0,0);
 Game hit;
+Ball the_ball = Ball(0, 0);
 
 void idle_func()
 {
 	//uncomment below to repeatedly draw new frames
+	the_ball.bidirectional(&hit);
 	the_ball.BallMove(hit.Collision(the_ball.getBallX(), the_ball.getBallY(), paddle1.getPaddleX(), paddle1.getPaddleY()), hit.Collision(the_ball.getBallX(), the_ball.getBallY(), paddle2.getPaddleX(), paddle2.getPaddleY()));
 	paddle2.PaddleUp(the_ball.getBallX(), the_ball.getBallY());
 	paddle2.PaddleDown(the_ball.getBallX(), the_ball.getBallY());
 	glutPostRedisplay();
+
 }
 
 void reshape_func(int width, int height)
@@ -109,7 +111,6 @@ void display_func(void)
 	float i = 1;
 	while (i > -1) 
 	{
-
 	glVertex2f(0.0f, i);
 	i -= 0.03;
 	glVertex2f(0.0f, i);
@@ -117,7 +118,7 @@ void display_func(void)
 	}
 	glEnd();
 
-
+	hit.ScoreRender();
 	paddle1.Render();
 	paddle2.Render();
 	the_ball.BallRender();

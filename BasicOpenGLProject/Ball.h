@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include "Game.h"
 
 class Ball {
 protected:
@@ -8,6 +9,7 @@ protected:
 	float posY;
 	float vx;
 	float vy;
+	Game* test;
 public:
 	Ball() { 
 		posX = 0;
@@ -22,6 +24,9 @@ public:
 		vy = 0.0002f;
 	}
 	~Ball() {
+	}
+	void bidirectional(Game* ptr) {
+		test = ptr;
 	}
 	void BallRender();
 	void BallMove(bool collide1, bool collide2);
