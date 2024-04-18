@@ -16,7 +16,7 @@
 //-----------------------------------------------------------------------------
 
 UserPaddle paddle1(-0.97f,-0.25f); //Include UserPaddle.h not UserPaddle.cpp
-OtherPaddle paddle2(0.87f,-0.25f); //position is middle right
+OtherPaddle paddle2(0.93f,-0.25f); //position is middle right
 Game hit;
 Ball the_ball = Ball(0, 0);
 
