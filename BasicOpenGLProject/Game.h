@@ -60,7 +60,7 @@ public:
 		OppWallOther = z;
 	}
 	void CalculateScore() {
-		std::cout << UserPush << OppWallUser << OtherPush << OppWallOther << " ";
+		//std::cout << UserPush << OppWallUser << OtherPush << OppWallOther << " ";
 		if (UserPush && OppWallUser) {
 			Userscore++;
 		}
