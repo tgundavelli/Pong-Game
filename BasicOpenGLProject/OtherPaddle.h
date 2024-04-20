@@ -4,9 +4,6 @@
 #include "Paddle.h"
 
 class OtherPaddle : public Paddle {
-protected:
-	float posX;
-	float posY;
 public:
 	OtherPaddle() { //origin is top left, so (0,0) is top left
 		posX = 0;
@@ -16,17 +13,11 @@ public:
 		posX = x;
 		posY = y;
 	}
-	virtual ~OtherPaddle() {
+	~OtherPaddle() {
 	}
 	void PaddleUp() override {}; //needed to instantiate abstract class
 	void PaddleDown() override {};
 	void PaddleUp(float Ball_posX, float Ball_posY); //no override because different parameters
 	void PaddleDown(float Ball_posX, float Ball_posY);
-	virtual void Render() override; //do not provide definition {} in .h if definition is shown in .cpp
-	virtual float getPaddleX() override {
-		return posX;
-	}
-	virtual float getPaddleY() override {
-		return posY;
-	}
+	void Render() override; //do not provide definition {} in .h if definition is shown in .cpp
 };

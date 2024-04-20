@@ -24,6 +24,7 @@ public:
 		vy = 0.0003f;
 	}
 	~Ball() {
+		delete test;
 	}
 	void bidirectional(Game* ptr) {
 		test = ptr;
