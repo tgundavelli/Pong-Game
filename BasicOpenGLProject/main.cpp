@@ -15,8 +15,9 @@
 // http://freeglut.sourceforge.net/docs/api.php#WindowCallback
 //-----------------------------------------------------------------------------
 
-UserPaddle paddle1(-0.97f,-0.25f); //Include UserPaddle.h not UserPaddle.cpp
-OtherPaddle paddle2(0.93f,-0.25f); //position is middle right
+Paddle* dyn_ptr = new UserPaddle(-0.97f,-0.25f); //Include UserPaddle.h not UserPaddle.cpp
+OtherPaddle paddle2(0.92f,-0.25f); //position is middle right
+Paddle* uc_ptr = &paddle2;
 Game hit;
 Ball the_ball = Ball(0, 0);
 
@@ -24,7 +25,7 @@ void idle_func()
 {
 	//uncomment below to repeatedly draw new frames
 	the_ball.bidirectional(&hit);
-	the_ball.BallMove(hit.Collision(the_ball.getBallX(), the_ball.getBallY(), paddle1.getPaddleX(), paddle1.getPaddleY()), hit.Collision(the_ball.getBallX(), the_ball.getBallY(), paddle2.getPaddleX(), paddle2.getPaddleY()));
+	the_ball.BallMove(hit.Collision(the_ball.getBallX(), the_ball.getBallY(), dyn_ptr->getPaddleX(), dyn_ptr->getPaddleY()), hit.Collision(the_ball.getBallX(), the_ball.getBallY(), uc_ptr->getPaddleX(), uc_ptr->getPaddleY()));
 	paddle2.PaddleUp(the_ball.getBallX(), the_ball.getBallY());
 	paddle2.PaddleDown(the_ball.getBallX(), the_ball.getBallY());
 	glutPostRedisplay();
@@ -43,13 +44,13 @@ void keyboard_func(unsigned char key, int x, int y)
 	{
 	case 'w': //I don't know how to do Arrow key
 	{
-		paddle1.PaddleUp();
+		dyn_ptr->PaddleUp();
 		break;
 	}
 
 	case 's':
 	{
-		paddle1.PaddleDown();
+		dyn_ptr->PaddleDown();
 		break;
 	}
 
@@ -119,8 +120,8 @@ void display_func(void)
 	glEnd();
 
 	hit.ScoreRender();
-	paddle1.Render();
-	paddle2.Render();
+	dyn_ptr->Render();
+	uc_ptr->Render();
 	the_ball.BallRender();
 	glutSwapBuffers();
 }
@@ -170,6 +171,9 @@ int main(int argc, char** argv)
 	init();
 
 	glutMainLoop();
+
+	delete dyn_ptr;
+	delete uc_ptr;
 
 	return EXIT_SUCCESS;
 }
