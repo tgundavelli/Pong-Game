@@ -1,6 +1,6 @@
 # BasicOpenGLProject
-
 Project : Pong Game
+
 I created a pong game using FreeGlut and Visual Studio. I used the basic OpenGL
 template provided in CatCourses. I am responsible for the logic and development of all the code.
 This is a 1-person project. I created a Paddle class, a UserPaddle class, a OtherPaddle class, a
@@ -16,6 +16,7 @@ or wall, the score is calculated. I created constructors and destructors for eve
 am using a Game* member variable, I added a delete pointer line in the destructor of the Ball
 class. I used setters to change the bools in the Game object from the Ball class. I used getters to
 get coordinate input from the Paddle and Ball class into the Collision function in Game class.
+
 For rendering the rectangles, I used the OpenGL commands glColor3f and glRectf. I used
 posX and posY as one vertex of the rectangle. I added float values for the opposite vertex to alter
 the length and width of the rectangle. I also used the OpenGL commands glBegin(GL_LINES),
@@ -30,6 +31,8 @@ to fit the command’s parameter. The rest of the OpenGL commands such as glutWi
 and glutSwapBuffers() are from the CatCourses basic OpenGL project template. I used version
 control : git status, git add ., git commit -m “message”, and then I pushed the modified files into
 the Github.
+
+
 I implemented algorithm logic for collision detection and score calculation. For collision
 detection, I first focused on how to determine whether the circle collides with the walls. The
 OpenGL coordinate system is that the y-axis is -1 to 1 and the x-axis is -1 to 1. The left side of
