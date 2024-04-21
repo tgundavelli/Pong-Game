@@ -1,0 +1,3 @@
+C:/Users/tgund/Downloads/BasicOpenGLProject/build/CMakeFiles/BasicOpenGLProject.dir
+C:/Users/tgund/Downloads/BasicOpenGLProject/build/CMakeFiles/edit_cache.dir
+C:/Users/tgund/Downloads/BasicOpenGLProject/build/CMakeFiles/rebuild_cache.dir

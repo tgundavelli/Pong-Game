@@ -1,0 +1,3 @@
+"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\BasicOpenGLProject.dir/objects.a
+C:\msys64\ucrt64\bin\ar.exe qc CMakeFiles\BasicOpenGLProject.dir/objects.a @CMakeFiles\BasicOpenGLProject.dir\objects1.rsp
+C:\msys64\ucrt64\bin\g++.exe -g -Wl,--whole-archive CMakeFiles\BasicOpenGLProject.dir/objects.a -Wl,--no-whole-archive -o BasicOpenGLProject.exe -Wl,--out-implib,libBasicOpenGLProject.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\BasicOpenGLProject.dir\linkLibs.rsp

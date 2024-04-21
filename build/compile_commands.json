@@ -1,0 +1,14 @@
+[
+{
+  "directory": "C:/Users/tgund/Downloads/BasicOpenGLProject/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe   -g -o CMakeFiles\\BasicOpenGLProject.dir\\main.obj -c C:\\Users\\tgund\\Downloads\\BasicOpenGLProject\\BasicOpenGLProject\\BasicOpenGLProject\\main.cpp",
+  "file": "C:/Users/tgund/Downloads/BasicOpenGLProject/BasicOpenGLProject/BasicOpenGLProject/main.cpp",
+  "output": "CMakeFiles/BasicOpenGLProject.dir/main.obj"
+},
+{
+  "directory": "C:/Users/tgund/Downloads/BasicOpenGLProject/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe   -g -o CMakeFiles\\BasicOpenGLProject.dir\\UserPaddle.obj -c C:\\Users\\tgund\\Downloads\\BasicOpenGLProject\\BasicOpenGLProject\\BasicOpenGLProject\\UserPaddle.cpp",
+  "file": "C:/Users/tgund/Downloads/BasicOpenGLProject/BasicOpenGLProject/BasicOpenGLProject/UserPaddle.cpp",
+  "output": "CMakeFiles/BasicOpenGLProject.dir/UserPaddle.obj"
+}
+]
