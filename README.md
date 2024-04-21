@@ -1,4 +1,6 @@
 # BasicOpenGLProject
+sidenote : I moved files into the folder called BasicOpenGLProject1, so that may be why there are more commits stated than necessary. I also had to manually add freeglut folder. Git only adds the source and header files not the external dependencies. Please use the zip I submitted not this zip given that this repo's zip has a hard time finding GL/freeglut
+
 Project : Pong Game
 
 I created a pong game using FreeGlut and Visual Studio. I used the basic OpenGL
